@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
-  const { country } = req.query; // Mendapatkan parameter country dari request
+  const { name } = req.query; // Mendapatkan parameter country dari request
 
-  const apiUrl = `http://universities.hipolabs.com/search?country=${country}`;
+  const apiUrl = `http://universities.hipolabs.com/search?name=${name}`;
 
   try {
     const response = await fetch(apiUrl);
