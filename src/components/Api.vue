@@ -63,7 +63,7 @@ export default {
   methods: {
     async searchMovies() {
       try {
-        const response = await axios.get("http://www.omdbapi.com", {
+        const response = await axios.get("https://www.omdbapi.com", {
           params: {
             apikey: "2608c62f",
             s: this.searchQuery,
@@ -82,7 +82,7 @@ export default {
     },
     async getMoviesDetails(id) {
       try {
-        const response = await axios.get("http://www.omdbapi.com", {
+        const response = await axios.get("https://www.omdbapi.com", {
           params: {
             apikey: "2608c62f",
             i: id,

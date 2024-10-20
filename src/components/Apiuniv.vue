@@ -45,17 +45,16 @@ export default {
   methods: {
     async searchUniversities() {
       try {
-        const response = await axios.get("http://universities.hipolabs.com/search", {
+        const response = await axios.get(`/api/universities`, {
           params: {
-            name: this.searchQuery,
+            country: this.searchQuery, // Mengirimkan parameter pencarian
           },
         });
         this.universities = response.data;
         this.errorMessage = "";
       } catch (error) {
-        console.error(error);
-        this.universities = [];
         this.errorMessage = "An error occurred while fetching data.";
+        console.error(error);
       }
     },
   },
