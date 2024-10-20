@@ -47,7 +47,8 @@ export default {
       try {
         const response = await axios.get(`/api/universities`, {
           params: {
-            name: this.searchQuery, // Mengirimkan parameter pencarian
+            name: this.searchQuery,
+            country: this.searchQuery, // Mengirimkan parameter pencarian
           },
         });
         this.universities = response.data;
