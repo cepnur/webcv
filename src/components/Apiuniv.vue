@@ -5,7 +5,7 @@
       <!-- search input -->
       <div class="flex gap-2 justify-center">
         <input type="text" class="border text-black w-1/2 py-2 rounded px-2" placeholder="Input University Name Here..." v-model="searchQuery" @keyup.enter="searchUniversities" />
-        <button class="py-2 px-2 rounded bg-green-500" @click="SearchUniversities">Search</button>
+        <button class="py-2 px-2 rounded bg-green-500" @click="searchUniversities">Search</button>
       </div>
 
       <!-- Universities List -->
@@ -45,17 +45,12 @@ export default {
   methods: {
     async searchUniversities() {
       try {
-        const response = await axios.get(`/api/universities`, {
-          params: {
-            name: this.searchQuery,
-            country: this.searchQuery, // Mengirimkan parameter pencarian
-          },
-        });
+        const response = await axios.get(`/api?country=${this.searchQuery}`);
+        console.log(response.data);
         this.universities = response.data;
-        this.errorMessage = "";
       } catch (error) {
-        this.errorMessage = "An error occurred while fetching data.";
-        console.error(error);
+        this.errorMessage = "error while fetching data";
+        console.log("error dibagian front", error);
       }
     },
   },
