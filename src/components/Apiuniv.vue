@@ -45,7 +45,11 @@ export default {
   methods: {
     async searchUniversities() {
       try {
-        const response = await axios.get(`/api?country=${this.searchQuery}`);
+        const response = await axios.get(`http://universities.hipolabs.com/search`, {
+          params: {
+            name: this.searchQuery,
+          },
+        });
         console.log(response.data);
         this.universities = response.data;
       } catch (error) {

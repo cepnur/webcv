@@ -4,14 +4,5 @@ import vue from "@vitejs/plugin-vue";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  server: {
-    port: 8080,
-    proxy: {
-      "/api": {
-        target: "http://universities.hipolabs.com/search",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
-      },
-    },
-  },
+  server: {},
 });
